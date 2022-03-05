@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Login</title>
+    <link rel="stylesheet" href="Login.css" type="text/css">
+</head>
+<body>
+    <header id="header1">
+        <nav id="navbar">
+            <span class="heads1"><a href="index.html">Log In</a></span>
+        </nav>
+    </header>
+
+
+        <section class="section">
+            <div class="center"  style="margin-top:12vh; border: 10px solid green; border-radius:20px;">
+                <h1  >Register</h1>
+
+                <form action="insert.php" method="post">
+                    <div class="txt_field">
+                        <input name="fname" type="text" required>
+                        <span></span>
+                        <label>First Name</label>
+                    </div>
+                    <div class="txt_field">
+                        <input name="lname" type="text" required>
+                        <span></span>
+                        <label>Last Name</label>
+                    </div>
+                    <div class="txt_field">
+                        <input name="email" type="email" required>
+                        <span></span>
+                        <label>Enter Your Email ID</label>
+                    </div>
+                    <div class="txt_field">
+                        <input name="password" type="password" required>
+                        <span></span>
+                        <label>Password</label>
+                    </div>
+                    <div class="txt_field">
+                        <input  name="mno" type="tel" required>
+                        <span></span>
+                        <label>Mobile Number</label>
+                    </div>
+                    <!--<div class="pass">Forgot Password?</div> -->
+                    <!--<input id="submits" type="submit"  style="margin:2%;">-->
+                    <button id="b1" type="submit"  style="margin:2%;">Submit</button>
+                    <!--<div class="sign_uplink">
+                        Not a Member?<a href="#">Signup</a>
+                    </div> -->
+
+                </form>
+            </div>
+
+        </section>
+
+    <script>
+        $("#b1").click(function(event) {
+            event.preventDefault();
+            alert("Hello from jQuery");
+        });
+    </script>   
+</body>
+</html>

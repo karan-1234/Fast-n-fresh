@@ -1,0 +1,110 @@
+#img1{
+    width: 60px;
+    position: relative;
+    top: 6px;
+}
+body{
+    margin: 0;
+    background-color: #C8E3D4;
+}
+#header1{
+    background-color: #6D9886;
+    padding: 24px;
+}
+#navbar{
+    font-size: 24px;
+    color: white;
+}
+#navbar .heads1:hover{
+    color: #3b3c36;
+    cursor: pointer;
+    text-decoration: none;
+}
+.heads1{
+    margin-right: 24px;
+}
+#headsec1{
+    text-align: center;
+    font-size: 100px;
+    color: green;
+    padding-top: 150px;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+#sec1{
+    background: url(/images/FoodBackground.jpg);
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0.8);
+    background-size: 100%;
+    width: 100%;
+    height: 400px;
+    margin-top: -83px;
+    opacity: 0.8;
+}
+#sec2h1{
+    padding: 24px;
+    margin: 24px;
+    text-align: center;
+    font-size: 40px;
+}
+/* Product CSS*/
+.product-card{
+    background-color:  #6D9886;
+    width: 420px;
+    position: relative;
+    height: 380px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    text-align: center;
+
+}
+.product-card img {
+    height: 150px;
+    width: 200px;
+
+}
+.product-name{
+    padding: 0 10px;
+}
+.product-name h1 {
+    margin: 5px 0;
+    font-size: 26px;
+}
+.product-name p {
+    color: #333232;
+}
+.product-name .price {
+    color:#152553;
+    margin-top: 5px 0;
+}
+.buttons1{
+    background-color: #4caf50;
+    margin-left: 240px;
+    position: relative;
+    bottom: 45px;
+
+    padding: 15px 12px;
+    color: white;
+}
+.product-price{
+    font-size: 24px;
+}
+/*flex CSS*/
+.flex-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.flex-box{
+    margin: 10px;
+    border: 1px solid black;
+}
+/*Categories*/
+.sec3head1{
+    text-align: center;
+    font-size: 40px;
+}
