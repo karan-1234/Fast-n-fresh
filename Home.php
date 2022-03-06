@@ -17,26 +17,51 @@
             <span class="heads1"><a href="Category.html">Category</a></span>
             <span class="heads1"><a href="about us.html">About Us</a></span>
             <span class="heads1"><a href="contactpage.html">Contact Us</a></span>
-            <span class="heads1">Choose By Location</span>
+            <span class="heads1"><a onclick="func()" href="cart.php">Cart</a></span>
             <span class="heads1"><a href="index.php">Logout</a></span>
         </nav>
     </header>
     <main>
-
+     
             <h1 id="headsec1" >Welcome to Fast N Fresh</h1>
-        
+            <?php
+            
+             $name=$_REQUEST['Login'];
+             echo "<center><h1>Hello $name</h1>  </center>";
+
+             echo "<form method='post' action='cart.php' style='display:none;'>
+             
+             <input value=$name name='name'></input>
+             <input value='' name='product'></input>
+             <input value='' name='price'></input>
+             <input value=$name name='Login'></input>
+             <button id='formSubmit' type='submit'></button>
+             </form>";
+
+             
+             echo "<form method='post' action='cart.php' style='display:none;'>
+             
+             <input value=$name name='name'></input>
+             <button id='formSubmit1' type='submit'></button>
+             </form>";
+
+
+            
+            ?> 
 
         <section>
             <h1 id="sec2h1">Best Deals</h1>
-        <div class="flex-container">
-        <div class="flex-box">
+     
+            <div class="flex-container">
+        
+            <div class="flex-box">
         
             <div class="product-card">
                 <img src="images/fruits/watermelon.jpg" alt="fruit/watermelon">
                 <div class="product-name">
                     <h1>Watermelon</h1>
                     <p>Fresh Fruit</p>
-                    <p class="product-price" id=">WatermelonP">Rs. 40 </p><span><button class="buttons1" id=">Watermelon" type="button" value="input-button">Add to Cart</button></span>
+                    <p id="WatermelonP" class="product-price">Rs. 40 </p> <span><button id="Watermelon" class="buttons1"  type="button" value="input-button">Add to Cart</button></span> 
                 </div>
             </div>
         
@@ -46,7 +71,7 @@
             <div class="product-card">
                 <img src="images/milkproducts/wheyprrotein.jpg" alt="fruit/watermelon">
                 <div class="product-name">
-                    <h1>Whey Protein</h1>
+                    <h1 id="WheyH" >Whey Protein</h1>
                     <p>Milk Products</p>
                     <p id="WheyP" class="product-price">Rs. 266/100g </p> <span><button id="Whey" class="buttons1"  type="button" value="input-button">Add to Cart</button></span> 
                 </div>
@@ -180,27 +205,45 @@
                 </div>
             </div>
             </div>
+        
         </section>
     </main>
-
+    
+    
+    
     <script>
         $(document).ready(function () {
             $('button').click(function(){
                
             var id = $(this).attr('id');
-            id+='P'
-            price=document.getElementById(id)
-            alert(price.innerHTML)
+            id1=id+'P'
+            price=document.getElementById(id1).innerHTML
+            price=price.toString()
+            
+            k=""
+            for(i=0;i<price.length;i++){
+                if(!isNaN(price[i]))
+                 k+=price[i]
+                if(price[i]=='/')
+                 break 
+
+            }
+    
+            document.getElementsByName('product')[0].value=id;
+            document.getElementsByName('price')[0].value=k;
+            document.getElementById('formSubmit').click();  
+            
         
             });
         });
 
+        function func(){
+            
+            document.getElementById('formSubmit1').click();  
+        }
+
     </script>
-/*
 
-Sexy abaya
-spkdwnwdcb
-
-*/    
+    
 </body>
 </html>

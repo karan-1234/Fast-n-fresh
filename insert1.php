@@ -32,9 +32,31 @@ if ($result = $mysqli -> query("SELECT * FROM Login where email='$email' and pas
       echo "Invalid Username or password";
       echo "<h1>Go To <a href='index.php'>Login page</a></h1>";
   }
+
+
   else{
-      echo "Login succesful";
-      echo "<h1>Go To <a href='Home.html'>Home page</a></h1>"; 
+      
+    $sql = "SELECT * FROM Login Where email='$email' and password='$password'";
+    $result = $mysqli->query($sql);
+    if ($result->num_rows > 0) {
+      // output data of each row
+      $first_name="";
+      while($row = $result->fetch_assoc()) {
+        $first_name=$row["fname"];
+      }
+    }
+    echo "Login succesful";
+    session_start();
+    $_SESSION['Login'] = $first_name;  
+     echo" 
+     <form method='post' action='home.php'>
+       <input name='Login' value=$first_name style='display:none;' ></input> 
+       <h1>Hello $first_name</h1>
+        <button type='submit'>Go To Home Page</button>
+      </form>
+
+      "
+      ; 
   }
   //echo $result -> num_rows;
   
