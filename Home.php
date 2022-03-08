@@ -12,12 +12,11 @@
     <header id="header1">
         <nav id="navbar">
             <span class="heads1"><img id="img1" src="images/groceries-ecommerce.png" alt="Icon"></span>
-            <span class="heads1"><a href="Home.html">Home</a></span>
-            <span class="heads1">Products</span>
-            <span class="heads1"><a href="Category.html">Category</a></span>
-            <span class="heads1"><a href="about us.html">About Us</a></span>
-            <span class="heads1"><a href="contactpage.html">Contact Us</a></span>
-            <span class="heads1"><a onclick="func()" href="cart.php">Cart</a></span>
+            
+            <span class="heads1"><button onclick="func1()">Category</button></span>
+            <span class="heads1"><button onclick="func2()">About Us</button></span>
+            <span class="heads1"><button onclick="func3()">Contact Us</button></span>
+            <span class="heads1"><button  onclick="func()">Cart</button></span>
             <span class="heads1"><a href="index.php">Logout</a></span>
         </nav>
     </header>
@@ -28,7 +27,6 @@
             
              $name=$_REQUEST['Login'];
              echo "<center><h1>Hello $name</h1>  </center>";
-
              echo "<form method='post' action='cart.php' style='display:none;'>
              
              <input value=$name name='name'></input>
@@ -45,6 +43,23 @@
              <button id='formSubmit1' type='submit'></button>
              </form>";
 
+             
+             echo "<form method='post' action='Category.php' style='display:none;'>             
+             <input value=$name name='Login'></input>
+             <button id='formSubmit2' type='submit'></button>
+             </form>";
+
+             
+             echo "<form method='post' action='about_us.php' style='display:none;'>             
+             <input value=$name name='Login'></input>
+             <button id='formSubmit3' type='submit'></button>
+             </form>";
+
+             
+             echo "<form method='post' action='contactpage.php' style='display:none;'>             
+             <input value=$name name='Login'></input>
+             <button id='formSubmit4' type='submit'></button>
+             </form>";
 
             
             ?> 
@@ -238,9 +253,22 @@
         });
 
         function func(){
-            
-            document.getElementById('formSubmit1').click();  
+            document.getElementById('formSubmit1').click();
         }
+
+        function func1(){
+            document.getElementById('formSubmit2').click();
+        }
+
+        function func2(){
+            document.getElementById('formSubmit3').click();
+        }
+
+        function func3(){
+            document.getElementById('formSubmit4').click();
+        }
+
+
 
     </script>
 

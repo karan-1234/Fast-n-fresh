@@ -36,7 +36,7 @@ if ($mysqli -> connect_errno) {
   exit();
 }
 
-$sql = "INSERT INTO cart  VALUES ('$product', '$price','$name','$date');";
+$sql = "INSERT INTO cart  VALUES ('$product', '$price','$name','$t');";
 $result = $mysqli->query($sql);
 
 $sql1="SELECT * FROM cart WHERE User='$name'";
@@ -102,7 +102,6 @@ $mysqli = new mysqli("localhost","root","","login");
 // Check connection
 if ($mysqli -> connect_errno) {
   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-  exit();
 }
 
 
@@ -116,8 +115,13 @@ if(isset($_REQUEST['Pname'])){
   $time=$_REQUEST['time'];
   $sql1="DELETE FROM cart WHERE User='$name' and time='$time' and Pname='$product'";
   $result = $mysqli->query($sql1);
+  
+echo "<form method='post' action='home.php' style='display:none;'>  
+<input value=$name name='Login'></input>
+<button id='formSubmit' type='submit'></button>
+</form>";
+echo "<script>alert('$product Removed from cart');document.getElementById('formSubmit').click()</script>";
 }
-
 
 $sql1="SELECT * FROM cart WHERE User='$name'";
 $result = $mysqli->query($sql1);
@@ -176,7 +180,7 @@ echo "'<button>Make Purchase</button>";
 
 }
 
-?>
+?>  
 
 </body>
 </html>

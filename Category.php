@@ -72,15 +72,58 @@
     <header id="header1">
         <nav id="navbar">
             <span class="heads1"><img id="img1" src="images/groceries-ecommerce.png" alt="Icon"></span>
-            <span class="heads1"><a href="Home.html">Home</a></span>
-            <span class="heads1"><a href=''> Products</a></span>
-            <span class="heads1"><a href="Category.html">Category</a></span>
-            <span class="heads1"><a href="about us.html">About Us</a></span>
-            <span class="heads1"><a href="contactpage.html">Contact Us</a></span>
-            <span class="heads1">Choose By Location</span>
+            
+         
+            <span class="heads1"><button onclick="func1()">Home</button></span>
+            <span class="heads1"><button onclick="func2()">About Us</button></span>
+            <span class="heads1"><button onclick="func3()">Contact Us</button></span>
+            <span class="heads1"><button  onclick="func()">Cart</button></span>
             <span class="heads1"><a href="index.php">Logout</a></span>
         </nav>
     </header>
+
+    
+
+    <?php
+            
+            $name=$_REQUEST['Login'];
+
+            echo "<form method='post' action='cart.php' style='display:none;'>
+            
+            <input value=$name name='name'></input>
+            <input value='' name='product'></input>
+            <input value='' name='price'></input>
+            <input value=$name name='Login'></input>
+            <button id='formSubmit' type='submit'></button>
+            </form>";
+
+            
+            echo "<form method='post' action='cart.php' style='display:none;'>
+            
+            <input value=$name name='name'></input>
+            <button id='formSubmit1' type='submit'></button>
+            </form>";
+
+            
+            echo "<form method='post' action='Home.php' style='display:none;'>             
+            <input value=$name name='Login'></input>
+            <button id='formSubmit2' type='submit'></button>
+            </form>";
+
+            
+            echo "<form method='post' action='Home.php' style='display:none;'>             
+            <input value=$name name='Login'></input>
+            <button id='formSubmit3' type='submit'></button>
+            </form>";
+
+            
+            echo "<form method='post' action='contactpage.php' style='display:none;'>             
+            <input value=$name name='Login'></input>
+            <button id='formSubmit4' type='submit'></button>
+            </form>";
+
+           
+           ?> 
 
 
 
@@ -524,62 +567,94 @@
 </body>
 
 
-<script>
-    /* When the user clicks on the button,
-        toggle between hiding and showing the dropdown content */
+    <script>
+        $(document).ready(function () {
+            $('button').click(function(){
+               
+            var id = $(this).attr('id');
+            id1=id+'P'
+            price=document.getElementById(id1).innerHTML
+            price=price.toString()
+            
+            k=""
+            for(i=0;i<price.length;i++){
+                if(!isNaN(price[i]))
+                 k+=price[i]
+                if(price[i]=='/')
+                 break 
 
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    function myFunction1() {
-        document.getElementById("myDropdown1").classList.toggle("show");
-    }
-
-
-    function filterFunction() {
-        var input, filter, ul, li, a, i;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        div = document.getElementById("myDropdown");
-        a = document.getElementsByClassName("a");
-        for (i = 0; i < a.length; i++) {
-            txtValue = a[i].textContent || a[i].innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                a[i].style.display = "";
-            } else {
-                a[i].style.display = "none";
             }
+    
+            document.getElementsByName('product')[0].value=id;
+            document.getElementsByName('price')[0].value=k;
+            document.getElementById('formSubmit').click();  
+            
+        
+            });
+        });
+
+        function func(){
+            document.getElementById('formSubmit1').click();
         }
 
-    }
+        function func1(){
+            document.getElementById('formSubmit2').click();
+        }
 
-    function func1(){
 
-           console.log("Here")
 
-                    window.scrollTo(
-                        top: 1200,
-                        behavior: 'smooth'
-                    });
+    </script>
 
-    }
+
 
 
 </script>
 
-<script>
-    $(document).ready(function () {
-        $('button').click(function(){
-           
-        var id = $(this).attr('id');
-        id+='P'
-        price=document.getElementById(id)
-        alert(price.innerHTML)
+
     
+<script>
+        $(document).ready(function () {
+            $('button').click(function(){
+               
+            var id = $(this).attr('id');
+            id1=id+'P'
+            price=document.getElementById(id1).innerHTML
+            price=price.toString()
+            
+            k=""
+            for(i=0;i<price.length;i++){
+                if(!isNaN(price[i]))
+                 k+=price[i]
+                if(price[i]=='/')
+                 break 
+
+            }
+    
+            document.getElementsByName('product')[0].value=id;
+            document.getElementsByName('price')[0].value=k;
+            document.getElementById('formSubmit').click();  
+            
+        
+            });
         });
-    });
 
-</script>
+        function func(){
+            document.getElementById('formSubmit1').click();
+        }
 
+        function func1(){
+            document.getElementById('formSubmit2').click();
+        }
+
+        function func2(){
+            document.getElementById('formSubmit3').click();
+        }
+
+        function func3(){
+            document.getElementById('formSubmit4').click();
+        }
+
+
+
+    </script>
 </html>
